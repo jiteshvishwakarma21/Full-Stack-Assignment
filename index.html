@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      Student Registration & Result Management
+    </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer>
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="brand">
+        SR
+        <span>
+          Student Records
+        </span>
+      </div>
+      <span class="tag">
+        Academic portal
+      </span>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow">
+          REGISTRATION & RESULTS
+        </p>
+        <h1>
+          Every student.
+          <br>
+          Every achievement.
+        </h1>
+        <p>
+          Register a student, enter their marks, and generate a result in seconds.
+        </p>
+      </div>
+      <div class="layout">
+        <section class="card" aria-labelledby="registration-title">
+          <div class="section-heading">
+            <span class="step">
+              01
+            </span>
+            <div>
+              <h2 id="registration-title">
+                Student registration
+              </h2>
+              <p>
+                Enter details and marks to calculate a result.
+              </p>
+            </div>
+          </div>
+          <form id="student-form">
+            <fieldset>
+              <legend>
+                Student details
+              </legend>
+              <div class="fields">
+                <label>
+                  Full name
+                  <input id="name" name="name" required maxlength="80" placeholder="e.g. Aarav Sharma" autocomplete="name">
+                </label>
+                <label>
+                  Roll number
+                  <input id="roll" name="roll" required maxlength="30" pattern="[A-Za-z0-9_-]+" title="Use letters, numbers, hyphens or underscores" placeholder="e.g. MCA001">
+                </label>
+                <label>
+                  Email address
+                  <input id="email" name="email" type="email" required maxlength="120" placeholder="student@example.com" autocomplete="email">
+                </label>
+                <label>
+                  Course
+                  <select id="course" name="course" required>
+                    <option value="">
+                      Select a course
+                    </option>
+                    <option>
+                      MCA
+                    </option>
+                    <option>
+                      BCA
+                    </option>
+                    <option>
+                      B.Sc. Computer Science
+                    </option>
+                    <option>
+                      B.Tech. Computer Science
+                    </option>
+                  </select>
+                </label>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>
+                Subject marks
+                <span>
+                  Out of 100 each
+                </span>
+              </legend>
+              <div id="marks-fields" class="marks">
+              </div>
+            </fieldset>
+            <p class="hint">
+              Pass criteria: at least 40 marks in every subject.
+            </p>
+            <div class="actions">
+              <button type="submit">
+                Calculate & save result
+                <span aria-hidden="true">
+                  →
+                </span>
+              </button>
+              <button class="secondary" type="reset">
+                Reset form
+              </button>
+            </div>
+            <p id="message" role="status" aria-live="polite">
+            </p>
+          </form>
+        </section>
+        <section class="card result-card" aria-labelledby="result-title">
+          <div class="section-heading">
+            <span class="step">
+              02
+            </span>
+            <div>
+              <h2 id="result-title">
+                Result overview
+              </h2>
+              <p>
+                Your calculated result appears here.
+              </p>
+            </div>
+          </div>
+          <div id="result">
+            <div class="empty">
+              <span aria-hidden="true">
+                ◎
+              </span>
+              <h3>
+                Ready when you are
+              </h3>
+              <p>
+                Complete the registration form to view the student’s report card.
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="card records" aria-labelledby="records-title">
+        <div class="records-heading">
+          <div>
+            <p class="eyebrow">
+              YOUR CLASSROOM, ORGANIZED
+            </p>
+            <h2 id="records-title">
+              Saved student records
+              <span id="count">
+                0
+              </span>
+            </h2>
+          </div>
+          <button id="export" class="secondary" type="button">
+            Export JSON
+          </button>
+        </div>
+        <label class="search">
+          Search records
+          <input id="search" type="search" placeholder="Search by name or roll number">
+        </label>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">
+              Saved results
+            </caption>
+            <thead>
+              <tr>
+                <th>
+                  Student
+                </th>
+                <th>
+                  Roll number
+                </th>
+                <th>
+                  Course
+                </th>
+                <th>
+                  Total
+                </th>
+                <th>
+                  Percentage
+                </th>
+                <th>
+                  Status
+                </th>
+                <th>
+                  Actions
+                </th>
+              </tr>
+            </thead>
+            <tbody id="records-body">
+            </tbody>
+          </table>
+        </div>
+        <p id="records-empty" class="hint">
+          No records yet. Save your first student result above.
+        </p>
+      </section>
+      <footer>
+        HTML5 · CSS3 · JavaScript
+        <span>
+          Records are stored locally in this browser.
+        </span>
+      </footer>
+    </main>
+  </body>
+</html>
